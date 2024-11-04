@@ -91,7 +91,7 @@ const Navbar = () => {
 						: 'fixed left-[-100%] top-0 ease-in duration-500 z-50 h-full w-[80%] flex flex-col text-xl'
 				}
 			>
-				<img alt="logo" src={Logo} className="m-6 pt-2 h-12 animate-pulse self-start" />
+				<img alt="logo" src={TaskLogo} className="m-6 pt-2 h-12 animate-pulse self-start" />
 
 				<ul className=" capitalize p-4 ">
 					<Link to="/" onClick={handlerMobile}>
