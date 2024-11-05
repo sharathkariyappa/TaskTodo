@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../components/Button.jsx'
-import Landingpage from '../assets/Landingpage.webp'
+import Landingpage from '../assets/Landingpage.jpg'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'

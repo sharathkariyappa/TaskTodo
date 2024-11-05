@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import TaskLogo from '../assets/HeaderLogo.jpg'
+import Logo from '../assets/HeaderLogo.jpg'
 import { Link } from 'react-router-dom'
 import { Sling as Hamburger } from 'hamburger-react'
 
@@ -49,12 +49,18 @@ const Navbar = () => {
 		<div ref={menuRef} className="flex justify-between items-center h-24 max-w-[1400px] mx-auto px-8 text-poppins ">
 			{/* Regular Navigation */}
 			<Link to="/">
-				<img alt="logo" src={TaskLogo} className=" h-12 rounded-xl px-0 bg-gray-600" />
+				<img alt="logo" src={Logo} className=" h-12 rounded-xl px-0 bg-gray-600" />
 			</Link>
 			<ul className="hidden lg:flex">
 				<Link to="/">
 					<li className={myStyling.list}>Home</li>
 				</Link>
+				<Link to="/contact">
+					<li className={myStyling.list}>Contact</li>
+				</Link>
+			</ul>
+
+			<ul className="hidden lg:flex">
 				<Link to="/login">
 					<li className={!user ? myStyling.list : 'hidden'}>Sign in</li>
 				</Link>
@@ -64,10 +70,6 @@ const Navbar = () => {
 				<Link to="/dashboard">
 					<li className={user ? myStyling.list : 'hidden '}>Dashboard</li>
 				</Link>
-			</ul>
-
-			<ul className="hidden lg:flex">
-				
 			</ul>
 
 			{/* If nav is TRUE then AiOutlineClose will display else display AiOutlineMenu. This is for the menu button transition */}
@@ -85,11 +87,14 @@ const Navbar = () => {
 						: 'fixed left-[-100%] top-0 ease-in duration-500 z-50 h-full w-[80%] flex flex-col text-xl'
 				}
 			>
-				<img alt="logo" src={TaskLogo} className="m-6 pt-2 h-12 animate-pulse self-start" />
+				<img alt="logo" src={Logo} className="m-6 pt-2 h-12 animate-pulse self-start" />
 
 				<ul className=" capitalize p-4 ">
 					<Link to="/" onClick={handlerMobile}>
 						<li className={`${myStyling.mobileList} border-b border-[#ffffff41]`}>Home</li>
+					</Link>
+					<Link to="/contact" onClick={handlerMobile}>
+						<li className={`${myStyling.mobileList} border-b border-[#ffffff41]`}>Contact</li>
 					</Link>
 					<Link to="/register" onClick={handlerMobile}>
 						<li className={!user ? `${myStyling.mobileList} border-b border-[#ffffff41]` : 'hidden'}>Register</li>

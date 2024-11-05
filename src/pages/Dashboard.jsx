@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 
-import { AppShell, Header, Text, Burger, useMantineTheme, AppShellHeader, AppShellSection } from '@mantine/core'
+import { AppShell, Header, Text, MediaQuery, Burger, useMantineTheme } from '@mantine/core'
 import { Modal, Button, Group } from '@mantine/core'
 import { ThemeIcon } from '@mantine/core'
 import { Navbar } from '@mantine/core'
-import { AppShellNavbar } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
 
 import { db } from '../firebase/firebase.js'
 import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from '../firebase/firebase.js'
+import { auth } from '../firebase/firebase'
 import { query, collection, onSnapshot, updateDoc, doc, addDoc, deleteDoc } from 'firebase/firestore'
-import { UserAuth } from '../context/AuthContext.js'
+import { UserAuth } from '../context/AuthContext'
 
-import StatCard from '../components/Statistics.jsx'
+import StatCard from '../components/Statistics'
 import Logo from '../assets/HeaderLogo.jpg'
 import { RiAddFill } from 'react-icons/ri'
 import { IoExitOutline } from 'react-icons/io5'
@@ -129,7 +127,7 @@ const Dashboard = (props) => {
 				navbarOffsetBreakpoint="sm"
 				asideOffsetBreakpoint="sm"
 				navbar={
-					<AppShellNavbar
+					<Navbar
 						data-aos="fade-up-right"
 						data-aos-duration="500"
 						className="bg-[#FBFEFF] border-r border-[#E4E4E4]"
@@ -138,11 +136,11 @@ const Dashboard = (props) => {
 						hidden={!opened2}
 						width={{ sm: 200, lg: 300 }}
 					>
-						<AppShellSection className="flex gap-5 place-items-center border-b pb-3 p-2 border-[#ffffff18]">
+						<Navbar.Section className="flex gap-5 place-items-center border-b pb-3 p-2 border-[#ffffff18]">
 							<img src={Logo} alt="Logo" className="h-5 rounded-md" />
-							<h1 className="text-[#000000] text-xl font-medium">Joma</h1>
-						</AppShellSection>
-						<AppShellSection mt="md">
+							<h1 className="text-[#000000] text-xl font-medium">Task</h1>
+						</Navbar.Section>
+						<Navbar.Section grow mt="md">
 							<ul className="grid gap-4">
 								<Link to="/dashboard">
 									<li className={`${Styling.dashList} bg-[#0000000f]`}>
@@ -181,8 +179,8 @@ const Dashboard = (props) => {
 									</li>
 								</Link>
 							</ul>
-						</AppShellSection>
-						<AppShellSection>
+						</Navbar.Section>
+						<Navbar.Section>
 							<ul className="border-t pt-3 border-[#0000001f]">
 								<li className="flex gap-3 place-items-center hover:bg-[#ffffff18] rounded-md p-2 duration-200 ease-in-out">
 									{' '}
@@ -194,19 +192,19 @@ const Dashboard = (props) => {
 									</p>
 								</li>
 							</ul>
-						</AppShellSection>
-					</AppShellNavbar>
+						</Navbar.Section>
+					</Navbar>
 				}
 				header={
-					<AppShellHeader data-aos="fade-left" data-aos-duration="300" className="bg-[#FBFEFF] border-b border-[#E4E4E4]" height={70} p="md">
+					<Header data-aos="fade-left" data-aos-duration="300" className="bg-[#FBFEFF] border-b border-[#E4E4E4]" height={70} p="md">
 						<div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-							<useMediaQuery largerThan="sm" styles={{ display: 'none' }}>
+							<MediaQuery largerThan="sm" styles={{ display: 'none' }}>
 								<Burger opened={opened2} onClick={() => setopened2((o) => !o)} size="sm" color={theme.colors.gray[6]} mr="xl" />
-							</useMediaQuery>
+							</MediaQuery>
 
 							<Text className="text-[#000] md:text-2xl">Dashboard</Text>
 						</div>
-					</AppShellHeader>
+					</Header>
 				}
 			>
 				<div className="grid gap-4">

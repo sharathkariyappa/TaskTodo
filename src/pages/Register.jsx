@@ -18,7 +18,7 @@ const Register = () => {
 							data-aos-once="true"
 							className="text-white text-center font-black text-4xl py-2 lg:text-left lg:text-5xl"
 						>
-							Set up your <span className="text-[#61c4e2]">ToDO</span> Account
+							Set up your <span className="text-[#61c4e2]">Task</span> Account
 							<span className="text-[#6AC6FB]">.</span>
 						</h1>
 						<p data-aos="fade-in" data-aos-duration="800" data-aos-once="true" className="text-white text-center font-light py-2 mb-5 lg:text-left ">
